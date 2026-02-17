@@ -15,9 +15,11 @@ export default function LocaleLayout({ children, params }: { children: ReactNode
 
   return (
     <div lang={locale} dir={dir} className="min-h-screen bg-bg text-text">
+      <div className="mx-auto max-w-[390px] border-x border-slate-200 dark:border-[#334155] lg:max-w-none lg:border-x-0">
       <Header locale={locale} />
       <main>{children}</main>
       <Footer locale={locale} />
+      </div>
     </div>
   );
 }

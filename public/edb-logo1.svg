@@ -1,0 +1,16 @@
+<svg width="520" height="180" viewBox="0 0 520 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="520" height="180" fill="white"/>
+  <g transform="translate(20 16)">
+    <path d="M0 122L63 55L126 122V145L63 84L0 145V122Z" fill="#1D4FD7"/>
+    <path d="M16 103L63 58L110 103V129L63 83L16 129V103Z" fill="#2446A8"/>
+    <path d="M35 86V38L48 25V98L35 86Z" fill="#2B4CA9"/>
+    <path d="M55 68V19L68 6V80L55 68Z" fill="#2E4EAA"/>
+    <path d="M75 68V19L88 6V80L75 68Z" fill="#3455B6"/>
+    <path d="M95 86V38L108 25V98L95 86Z" fill="#3B5FBD"/>
+  </g>
+  <g transform="translate(170 30)">
+    <text x="0" y="74" fill="#1B1B78" font-family="Inter, Arial, sans-serif" font-size="84" font-weight="500">EDB</text>
+    <text x="2" y="106" fill="#1B1B78" font-family="'Noto Sans Arabic', Arial, sans-serif" font-size="19" font-weight="500">بنك تنمية الصادرات</text>
+    <text x="2" y="130" fill="#1B1B78" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="500" letter-spacing="0.8">EXPORT DEVELOPMENT BANK</text>
+  </g>
+</svg>

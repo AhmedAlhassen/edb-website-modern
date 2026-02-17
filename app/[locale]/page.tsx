@@ -10,5 +10,5 @@ export default async function HomePage({ params }: { params: { locale: string } 
   const page = await getPageBySlug('home', locale);
   if (!page) notFound();
 
-  return <BlockRenderer blocks={page.blocks} />;
+  return <BlockRenderer blocks={page.blocks} locale={locale} />;
 }

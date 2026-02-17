@@ -16,6 +16,23 @@ export const quickActionsBlockSchema = z.object({
   actions: z.array(z.object({ label: z.string(), href: z.string() })),
 });
 
+export const fxRatesBlockSchema = z.object({
+  type: z.literal('fx-rates'),
+  title: z.string(),
+  liveLabel: z.string(),
+  rates: z.array(
+    z.object({
+      pair: z.string(),
+      trend: z.enum(['up', 'down', 'flat']),
+      change: z.string(),
+      buyLabel: z.string(),
+      sellLabel: z.string(),
+      buy: z.string(),
+      sell: z.string(),
+    }),
+  ),
+});
+
 export const announcementRailBlockSchema = z.object({
   type: z.literal('announcement-rail'),
   title: z.string(),
@@ -30,10 +47,57 @@ export const announcementRailBlockSchema = z.object({
   ),
 });
 
+export const latestNewsBlockSchema = z.object({
+  type: z.literal('latest-news'),
+  title: z.string(),
+  eyebrow: z.string(),
+  viewAllLabel: z.string(),
+  items: z.array(
+    z.object({
+      id: z.string(),
+      date: z.string(),
+      title: z.string(),
+      excerpt: z.string(),
+      href: z.string(),
+      cta: z.string(),
+    }),
+  ),
+});
+
+export const mobileAppPromoBlockSchema = z.object({
+  type: z.literal('mobile-app-promo'),
+  eyebrow: z.string(),
+  title: z.string(),
+  description: z.string(),
+  features: z.array(z.string()).optional(),
+  appStoreLabel: z.string(),
+  appStoreSubLabel: z.string(),
+  playStoreLabel: z.string(),
+  playStoreSubLabel: z.string(),
+  qrLabel: z.string(),
+});
+
+export const trustMetricsBlockSchema = z.object({
+  type: z.literal('trust-metrics'),
+  eyebrow: z.string(),
+  title: z.string(),
+  metrics: z.array(
+    z.object({
+      label: z.string(),
+      value: z.string(),
+      note: z.string().optional(),
+    }),
+  ),
+});
+
 export const pageBlockSchema = z.discriminatedUnion('type', [
   heroIntentBlockSchema,
+  fxRatesBlockSchema,
+  trustMetricsBlockSchema,
   quickActionsBlockSchema,
   announcementRailBlockSchema,
+  latestNewsBlockSchema,
+  mobileAppPromoBlockSchema,
 ]);
 
 export type PageBlock = z.infer<typeof pageBlockSchema>;

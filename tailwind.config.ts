@@ -8,6 +8,7 @@ export default {
       colors: {
         bg: 'var(--color-bg)',
         surface: 'var(--color-surface)',
+        'surface-muted': 'var(--color-surface-muted)',
         text: 'var(--color-text)',
         muted: 'var(--color-muted)',
         border: 'var(--color-border)',
