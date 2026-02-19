@@ -75,8 +75,8 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
       onMouseEnter={clearCloseTimer}
       onMouseLeave={scheduleClose}
     >
-      <div className="mx-auto grid w-full max-w-[1360px] grid-cols-1 border-b border-border lg:grid-cols-[auto_1fr_auto]">
-        <div className="border-b border-border px-8 py-4 lg:border-b-0 lg:border-e">
+      <div className="mx-auto grid w-full max-w-[1360px] grid-cols-1 lg:grid-cols-[auto_1fr_auto]">
+        <div className="px-8 py-4">
           <Link href={`/${locale}`} className="focus-ring inline-flex min-h-11 items-center">
             <EdbLogo locale={locale} width={220} height={74} className="h-14 w-auto" />
           </Link>
@@ -84,7 +84,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
 
         <nav className="grid grid-cols-2 lg:grid-cols-5">
           <div
-            className="flex min-h-20 items-center justify-center border-b border-e border-border px-4 lg:border-b-0"
+            className="flex min-h-20 items-center justify-center px-4"
             onMouseEnter={() => setActiveMenu(null)}
           >
             <RetailCorporateToggle locale={locale} retailLabel={labels.retail} corporateLabel={labels.corporate} />
@@ -92,7 +92,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
 
           <Link
             href={`/${locale}/${pagePaths.services}`}
-            className="focus-ring group flex min-h-20 items-center justify-center border-b border-e border-border px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B] lg:border-b-0"
+            className="focus-ring group flex min-h-20 items-center justify-center px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B]"
             onMouseEnter={() => setActiveMenu('accounts')}
             onFocus={() => setActiveMenu('accounts')}
           >
@@ -101,7 +101,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
           </Link>
           <Link
             href={`/${locale}/${pagePaths.services}`}
-            className="focus-ring group flex min-h-20 items-center justify-center border-b border-e border-border px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B] lg:border-b-0"
+            className="focus-ring group flex min-h-20 items-center justify-center px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B]"
             onMouseEnter={() => setActiveMenu('financing')}
             onFocus={() => setActiveMenu('financing')}
           >
@@ -110,7 +110,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
           </Link>
           <Link
             href={`/${locale}/${pagePaths.services}`}
-            className="focus-ring group flex min-h-20 items-center justify-center border-b border-e border-border px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B] lg:border-b-0"
+            className="focus-ring group flex min-h-20 items-center justify-center px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B]"
             onMouseEnter={() => setActiveMenu('investment')}
             onFocus={() => setActiveMenu('investment')}
           >
@@ -119,7 +119,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
           </Link>
           <Link
             href={`/${locale}/${pagePaths.about}`}
-            className="focus-ring group flex min-h-20 items-center justify-center border-b border-border px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B] lg:border-b-0"
+            className="focus-ring group flex min-h-20 items-center justify-center px-6 text-sm font-bold text-slate-700 transition-all hover:bg-slate-50 hover:text-primary dark:text-[#CBD5E1] dark:hover:bg-[#1E293B]"
             onMouseEnter={() => setActiveMenu('about')}
             onFocus={() => setActiveMenu('about')}
           >
@@ -128,7 +128,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
           </Link>
         </nav>
 
-        <div className="flex items-center justify-center border-t border-border px-8 py-4 lg:border-s lg:border-t-0">
+        <div className="flex items-center justify-center px-8 py-4">
           <Link href={`/${locale}/${pagePaths.services}`}>
             <Button className="min-w-[180px] gap-2 px-6 py-3 text-sm font-bold shadow-lg shadow-primary/20">
               <Lock size={16} /> {labels.login}
@@ -137,7 +137,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
         </div>
       </div>
 
-      <div className="border-b border-[#07142d] bg-[#07142d] text-white dark:border-[#334155] dark:bg-[#1E293B]">
+      <div className="bg-[#07142d] text-white dark:bg-[#1E293B]">
         <div className="mx-auto flex w-full max-w-[1360px] items-center justify-between px-6 py-2 text-[11px]">
           <div className="flex items-center gap-3">
             <span className="rounded bg-primary px-2 py-0.5 text-[10px] font-extrabold uppercase tracking-wide">{labels.alertBadge}</span>
@@ -151,7 +151,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
 
       <div className="absolute inset-x-0 top-full z-40">
         <div
-          className={`mx-auto grid w-full max-w-[1360px] translate-y-2 grid-cols-[1fr_1fr_1fr_300px] gap-8 border border-border bg-surface px-8 py-10 shadow-[0_20px_36px_-30px_rgba(15,23,42,0.5)] transition duration-200 ${
+          className={`mx-auto grid w-full max-w-[1360px] translate-y-2 grid-cols-[1fr_1fr_1fr_300px] gap-8 bg-surface px-8 py-10 shadow-[0_20px_36px_-30px_rgba(15,23,42,0.5)] transition duration-200 ${
             activeMenu ? 'pointer-events-auto translate-y-0 opacity-100 visible' : 'opacity-0 invisible'
           }`}
           onMouseEnter={clearCloseTimer}
@@ -159,7 +159,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
         >
           {columns.map((column) => (
             <div key={`${activeMenu}-${column.title}`}>
-              <h3 className="mb-4 border-b border-border pb-3 text-sm font-black tracking-wide text-primary">
+              <h3 className="mb-4 pb-3 text-sm font-black tracking-wide text-primary">
                 {column.title}
               </h3>
               <ul className="space-y-2 text-base">
@@ -175,7 +175,7 @@ export function DesktopNavWithMega({ locale, labels, accountsColumns, financingC
             </div>
           ))}
 
-          <aside className="rounded-lg border border-border bg-surface-muted p-6">
+          <aside className="rounded-lg bg-surface-muted p-6 shadow-sm">
             <span className="inline-flex rounded bg-primary px-2 py-1 text-xs font-bold text-white">{labels.promoBadge}</span>
             <h3 className="mt-4 text-2xl font-black leading-tight text-text">{labels.promoTitle}</h3>
             <p className="mt-4 text-sm text-muted">{labels.promoDescription}</p>

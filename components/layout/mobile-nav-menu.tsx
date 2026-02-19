@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ChevronDown, Headphones, Info, Landmark, Lock, MapPin, Menu, TrendingUp, Wallet, X } from 'lucide-react';
 import { useState } from 'react';
 import type { Locale } from '@/lib/i18n/config';
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export function MobileNavMenu({ locale, labels }: Props) {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<'accounts' | 'financing' | 'investment' | 'about' | null>('accounts');
   const isAr = locale === 'ar';
@@ -46,6 +48,10 @@ export function MobileNavMenu({ locale, labels }: Props) {
   };
 
   const close = () => setOpen(false);
+  const retailPath = `/${locale}/${pagePaths.retailBanking}`;
+  const corporatePath = `/${locale}/${pagePaths.corporateBanking}`;
+  const isRetailActive = pathname === retailPath || pathname === `/${locale}`;
+  const isCorporateActive = pathname === corporatePath;
   const toggleSection = (section: 'accounts' | 'financing' | 'investment' | 'about') =>
     setActiveSection((prev) => (prev === section ? null : section));
 
@@ -62,30 +68,42 @@ export function MobileNavMenu({ locale, labels }: Props) {
       </button>
 
       {open && (
-        <div className="absolute inset-x-0 top-[-56px] z-[90] h-[calc(100vh-32px)] border-y border-border bg-surface shadow-xl dark:bg-[#111521]">
-          <header className="flex h-16 shrink-0 items-center justify-between border-b border-border px-4">
+        <div className="absolute inset-x-0 top-[-56px] z-[90] h-[calc(100vh-32px)] bg-surface shadow-xl dark:bg-[#111521]">
+          <header className="flex h-16 shrink-0 items-center justify-between px-4 shadow-sm">
             <Link href={`/${locale}`} className="focus-ring inline-flex items-center" onClick={close}>
               <EdbLogo locale={locale} width={144} height={48} className="h-9 w-auto" />
             </Link>
-            <button className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg border border-border bg-surface text-slate-900 transition-colors hover:bg-surface-muted active:bg-surface-muted dark:bg-[#1E293B] dark:text-[#F8FAFC]" onClick={close} type="button">
+            <button className="focus-ring inline-flex h-11 w-11 items-center justify-center rounded-lg bg-surface text-slate-900 transition-colors hover:bg-surface-muted active:bg-surface-muted dark:bg-[#1E293B] dark:text-[#F8FAFC]" onClick={close} type="button">
               <X size={24} />
             </button>
           </header>
 
           <div className="h-[calc(100%-64px)] overflow-y-auto">
               <div className="px-4 py-4">
-                <div className="flex rounded-xl border border-border bg-surface-muted p-1 dark:bg-[#1E293B]">
-                  <Link className="focus-ring flex-1 rounded-lg border border-border bg-surface py-2.5 text-center text-sm font-bold text-primary transition-colors hover:bg-surface-muted/60 active:bg-surface-muted dark:border-[#334155] dark:bg-[#334155] dark:text-white" href={`/${locale}/${pagePaths.retailBanking}`} onClick={close}>
+                <div className="grid grid-cols-2 rounded-xl bg-surface-muted p-1 shadow-sm dark:bg-[#1E293B]">
+                  <Link
+                    className={`focus-ring rounded-lg py-2.5 text-center text-sm font-bold transition-colors hover:bg-surface-muted/60 active:bg-surface-muted ${
+                      isRetailActive ? 'bg-surface text-primary shadow-sm dark:bg-[#334155] dark:text-white' : 'text-slate-500 dark:text-[#CBD5E1]'
+                    }`}
+                    href={retailPath as never}
+                    onClick={close}
+                  >
                     {labels.retail}
                   </Link>
-                  <Link className="focus-ring flex-1 rounded-lg py-2.5 text-center text-sm font-bold text-slate-500 transition-colors hover:bg-surface-muted/60 active:bg-surface-muted dark:text-[#CBD5E1]" href={`/${locale}/${pagePaths.corporateBanking}`} onClick={close}>
+                  <Link
+                    className={`focus-ring rounded-lg py-2.5 text-center text-sm font-bold transition-colors hover:bg-surface-muted/60 active:bg-surface-muted ${
+                      isCorporateActive ? 'bg-surface text-primary shadow-sm dark:bg-[#334155] dark:text-white' : 'text-slate-500 dark:text-[#CBD5E1]'
+                    }`}
+                    href={corporatePath as never}
+                    onClick={close}
+                  >
                     {labels.corporate}
                   </Link>
                 </div>
               </div>
 
-              <nav className="border-t border-border">
-                <section className="border-b border-border">
+              <nav>
+                <section>
                   <button className={`group flex w-full items-center justify-between px-4 py-5 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted ${activeSection === 'accounts' ? 'bg-surface-muted/70 text-primary dark:bg-[#1E293B] dark:text-primary' : 'text-slate-900 dark:text-[#F8FAFC]'}`} onClick={() => toggleSection('accounts')} type="button">
                     <span className="flex items-center gap-3 text-[15px] font-extrabold"><Landmark size={20} /> {labels.accounts}</span>
                     <ChevronDown className={`transition-transform duration-200 group-hover:translate-y-0.5 ${activeSection === 'accounts' ? 'rotate-180' : ''}`} size={18} />
@@ -107,7 +125,7 @@ export function MobileNavMenu({ locale, labels }: Props) {
                   )}
                 </section>
 
-                <section className="border-b border-border">
+                <section>
                   <button
                     className={`group flex w-full items-center justify-between px-4 py-5 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted ${activeSection === 'financing' ? 'bg-surface-muted/70 text-primary dark:bg-[#1E293B] dark:text-primary' : 'text-slate-900 dark:text-[#F8FAFC]'}`}
                     onClick={() => toggleSection('financing')}
@@ -131,7 +149,7 @@ export function MobileNavMenu({ locale, labels }: Props) {
                   )}
                 </section>
 
-                <section className="border-b border-border">
+                <section>
                   <button
                     className={`group flex w-full items-center justify-between px-4 py-5 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted ${activeSection === 'investment' ? 'bg-surface-muted/70 text-primary dark:bg-[#1E293B] dark:text-primary' : 'text-slate-900 dark:text-[#F8FAFC]'}`}
                     onClick={() => toggleSection('investment')}
@@ -154,7 +172,7 @@ export function MobileNavMenu({ locale, labels }: Props) {
                   )}
                 </section>
 
-                <section className="border-b border-border">
+                <section>
                   <button
                     className={`group flex w-full items-center justify-between px-4 py-5 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted ${activeSection === 'about' ? 'bg-surface-muted/70 text-primary dark:bg-[#1E293B] dark:text-primary' : 'text-slate-900 dark:text-[#F8FAFC]'}`}
                     onClick={() => toggleSection('about')}
@@ -178,18 +196,18 @@ export function MobileNavMenu({ locale, labels }: Props) {
                 </section>
               </nav>
 
-              <div className="grid grid-cols-2 gap-3 border-b border-border bg-surface px-4 py-4 dark:bg-[#1E293B]/20">
-                <Link className="focus-ring flex h-12 items-center gap-3 rounded-xl border border-border bg-surface px-4 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted dark:bg-[#1E293B]" href={`/${locale}/${pagePaths.locations}`} onClick={close}>
+              <div className="grid grid-cols-2 gap-3 bg-surface px-4 py-4 dark:bg-[#1E293B]/20">
+                <Link className="focus-ring flex h-12 items-center gap-3 rounded-xl bg-surface px-4 shadow-sm transition-colors hover:bg-surface-muted/70 active:bg-surface-muted dark:bg-[#1E293B]" href={`/${locale}/${pagePaths.locations}`} onClick={close}>
                   <MapPin className="text-primary" size={20} />
                   <span className="text-[13px] font-bold text-slate-700 dark:text-[#CBD5E1]">{menuCopy.locations}</span>
                 </Link>
-                <Link className="focus-ring flex h-12 items-center gap-3 rounded-xl border border-border bg-surface px-4 transition-colors hover:bg-surface-muted/70 active:bg-surface-muted dark:bg-[#1E293B]" href={`/${locale}/${pagePaths.helpCenter}`} onClick={close}>
+                <Link className="focus-ring flex h-12 items-center gap-3 rounded-xl bg-surface px-4 shadow-sm transition-colors hover:bg-surface-muted/70 active:bg-surface-muted dark:bg-[#1E293B]" href={`/${locale}/${pagePaths.helpCenter}`} onClick={close}>
                   <Headphones className="text-primary" size={20} />
                   <span className="text-[13px] font-bold text-slate-700 dark:text-[#CBD5E1]">{menuCopy.support}</span>
                 </Link>
               </div>
 
-              <div className="space-y-3 border-t border-border bg-surface p-4 dark:bg-[#111521]">
+              <div className="space-y-3 bg-surface p-4 dark:bg-[#111521]">
 
               <Link href={`/${locale}/${pagePaths.services}`} onClick={close}>
                 <Button className="h-12 w-full gap-3 rounded-xl text-base font-bold shadow-lg shadow-primary/20">

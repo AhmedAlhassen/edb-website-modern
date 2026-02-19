@@ -161,15 +161,15 @@ export function Header({ locale }: { locale: Locale }) {
   };
 
   return (
-    <header className="border-b border-border bg-surface">
+    <header className="bg-surface">
       <div className="lg:hidden">
-        <div className="border-b border-border bg-surface">
+        <div className="bg-surface shadow-sm">
           <div className="mx-auto flex h-8 w-full max-w-[390px] items-center justify-between px-4 text-[10px] font-bold uppercase tracking-wider text-muted">
             <div className="flex h-full items-center">
               <span className="inline-flex h-full items-center gap-1 pe-3">
                 <MapPin size={12} /> {mobileLabels.branches}
               </span>
-              <span className="inline-flex h-full items-center gap-1 border-s border-border ps-3">
+              <span className="inline-flex h-full items-center gap-1 ps-3">
                 <Headphones size={12} /> {mobileLabels.support}
               </span>
             </div>
@@ -212,7 +212,7 @@ export function Header({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      <div className="hidden border-b border-border bg-surface lg:block">
+      <div className="hidden bg-surface shadow-sm lg:block">
         <div className="mx-auto flex w-full max-w-[1360px] items-center justify-between">
           <div className="flex items-center divide-x divide-border text-xs font-bold uppercase tracking-wider text-muted rtl:divide-x-reverse">
             <span className="inline-flex min-h-10 items-center gap-2 px-4">

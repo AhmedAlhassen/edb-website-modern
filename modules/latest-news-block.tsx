@@ -11,7 +11,7 @@ export function LatestNewsBlock({ block, locale }: { block: LatestNewsBlockType;
   const ArrowIcon = isAr ? ChevronLeft : ChevronRight;
 
   return (
-    <section className="w-full border-b border-border bg-surface px-4 py-14 lg:px-8 lg:py-24">
+    <section className="w-full bg-surface px-4 py-14 lg:px-8 lg:py-24">
       <div className="mx-auto w-full max-w-[1360px]">
         <div className="mb-12 flex items-end justify-between gap-4">
           <div>
@@ -26,9 +26,9 @@ export function LatestNewsBlock({ block, locale }: { block: LatestNewsBlockType;
           </Link>
         </div>
 
-        <div className="grid gap-0 border border-border lg:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {block.items.map((item) => (
-            <article key={item.id} className="border-b border-e border-border p-8 transition-colors hover:bg-surface-muted/70 last:border-b-0 lg:last:border-b lg:last:border-e-0">
+            <article key={item.id} className="rounded-xl bg-surface p-8 shadow-sm transition-colors hover:bg-surface-muted/70 hover:shadow-md dark:bg-[#1E293B]">
               <p className="mb-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 dark:text-[#94A3B8]">{item.date}</p>
               <h3 className="mb-4 text-xl font-black leading-tight text-slate-900 dark:text-[#F8FAFC]">{item.title}</h3>
               <p className="mb-8 text-sm leading-relaxed text-slate-500 dark:text-[#CBD5E1]">{item.excerpt}</p>

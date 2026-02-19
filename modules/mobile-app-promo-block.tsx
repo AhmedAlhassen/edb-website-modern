@@ -9,10 +9,10 @@ export function MobileAppPromoBlock({ block, locale }: { block: MobileAppPromoBl
   const isAr = locale === 'ar';
 
   return (
-    <section className="w-full overflow-hidden border-b border-border bg-[#F1F5F9] dark:bg-[#0F172A]">
+    <section className="w-full overflow-hidden bg-[#F1F5F9] dark:bg-[#0F172A]">
       <div className="mx-auto w-full max-w-[1360px]">
         <div className="grid items-center lg:grid-cols-2">
-          <div className="border-e border-border p-10 lg:p-20">
+          <div className="p-10 lg:p-20">
             <div className="mb-6 inline-flex items-center gap-2 rounded bg-primary/10 px-3 py-1 text-primary">
               <Smartphone size={16} />
               <span className="text-[10px] font-black uppercase tracking-widest">{block.eyebrow}</span>
@@ -60,7 +60,7 @@ export function MobileAppPromoBlock({ block, locale }: { block: MobileAppPromoBl
             </div>
 
             <div className="text-center">
-              <div className="mb-4 inline-block border border-border bg-surface p-4 shadow-sm dark:bg-[#1E293B]">
+              <div className="mb-4 inline-block bg-surface p-4 shadow-sm dark:bg-[#1E293B]">
                 <div className="flex h-32 w-32 items-center justify-center bg-slate-900 text-white">
                   <QrCode size={72} />
                 </div>

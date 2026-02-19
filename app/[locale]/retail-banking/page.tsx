@@ -1,6 +1,14 @@
-import { PageShell } from '@/components/layout/page-shell';
-import type { Locale } from '@/lib/i18n/config';
+import { notFound } from 'next/navigation';
+import { BlockRenderer } from '@/modules/block-renderer';
+import { getPageBySlug } from '@/lib/cms/client';
+import { locales, type Locale } from '@/lib/i18n/config';
 
-export default function Page({ params }: { params: { locale: Locale } }) {
-  return <PageShell locale={params.locale} page="retail-banking" />;
+export default async function RetailHomePage({ params }: { params: { locale: string } }) {
+  if (!locales.includes(params.locale as Locale)) notFound();
+  const locale = params.locale as Locale;
+
+  const page = await getPageBySlug('home-retail', locale);
+  if (!page) notFound();
+
+  return <BlockRenderer blocks={page.blocks} locale={locale} />;
 }

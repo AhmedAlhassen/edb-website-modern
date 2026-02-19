@@ -64,7 +64,7 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
 
   return (
     <>
-      <section className="border-b border-border bg-surface lg:hidden">
+      <section className="bg-surface lg:hidden">
         <div className="bg-[radial-gradient(circle_at_top_right,rgba(29,79,215,0.08),transparent_70%)] px-4 pb-10 pt-8">
           <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-2.5 py-1">
             <span className="relative flex h-1.5 w-1.5">
@@ -84,8 +84,8 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
         </div>
       </section>
 
-      <section className="border-b border-border bg-slate-50 p-4 dark:bg-[#1E293B]/50 lg:hidden">
-        <article className="w-full rounded-xl border border-border bg-surface p-5 shadow-lg dark:bg-[#1E293B]">
+      <section className="bg-slate-50 p-4 dark:bg-[#1E293B]/50 lg:hidden">
+        <article className="w-full rounded-xl bg-surface p-5 shadow-lg dark:bg-[#1E293B]">
           <div className="mb-6 flex items-start justify-between">
             <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-slate-900 text-white dark:border dark:border-primary/30 dark:bg-primary/20 dark:text-primary">
               <TrendingUp size={16} />
@@ -104,7 +104,7 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
               />
             ))}
           </div>
-          <div className="flex items-center justify-between border-t border-slate-100 pt-4 dark:border-[#334155]">
+          <div className="flex items-center justify-between pt-4">
             <div>
               <p className="text-xs font-bold text-slate-900 dark:text-[#F8FAFC]">{labels.cardTitle}</p>
               <p className="typo-caption text-slate-500 dark:text-[#CBD5E1]">{labels.cardSubtitle}</p>
@@ -119,9 +119,9 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
         </article>
       </section>
 
-      <section className="hidden overflow-hidden border-b border-border bg-surface dark:bg-[#0F172A] lg:block">
+      <section className="hidden overflow-hidden bg-surface dark:bg-[#0F172A] lg:block">
         <div className="mx-auto grid min-h-[600px] w-full max-w-[1360px] gap-0 lg:grid-cols-2">
-          <div className="flex flex-col justify-center border-e border-border px-12 py-14 lg:px-16 lg:py-20">
+          <div className="flex flex-col justify-center px-12 py-14 lg:px-16 lg:py-20">
             <span className="inline-flex w-fit items-center gap-2 rounded-full border border-primary/10 bg-primary/5 px-4 py-1">
               <span className="relative flex h-2 w-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
@@ -141,7 +141,7 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
 
           <div className="relative flex items-center justify-center bg-slate-50 p-8 dark:bg-[#1E293B]/50">
             <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(29,79,215,0.1),transparent_55%)]" />
-            <article className="relative w-full max-w-lg rounded-2xl border border-border bg-surface p-8 shadow-2xl dark:bg-[#1E293B]">
+            <article className="relative w-full max-w-lg rounded-2xl bg-surface p-8 shadow-2xl dark:bg-[#1E293B]">
               <div className="mb-12 flex items-start justify-between">
                 <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-[#0a1633] text-white dark:border dark:border-primary/30 dark:bg-primary/20 dark:text-primary">
                   <TrendingUp size={18} />
@@ -160,7 +160,7 @@ export function HeroIntentBlock({ block, locale }: { block: HeroBlock; locale: L
                   />
                 ))}
               </div>
-              <div className="mt-8 flex items-center justify-between border-t border-slate-100 pt-8 dark:border-[#334155]">
+              <div className="mt-8 flex items-center justify-between pt-8">
                 <div>
                   <p className="text-lg font-bold text-slate-900 dark:text-[#F8FAFC]">{labels.cardTitle}</p>
                   <p className="text-xs text-slate-500 dark:text-[#CBD5E1]">{labels.desktopCardSubtitle}</p>
